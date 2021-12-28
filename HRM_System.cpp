@@ -8,7 +8,8 @@ Dowson Kerk: https://github.com/DowsonKerk
 using namespace std;
 
 int main (){
-    cout << "Human Resources Management" << endl;
+    cout << "Human Resources Management System" << endl;
+    cout << "Choose 1 to Proceed and Choose 2 to Exit the system" << endl;
     int choice = 1;
     while(choice !=2)
         cout << "(1)Login" << endl;
