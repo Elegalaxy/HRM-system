@@ -12,6 +12,7 @@ protected:
     Time* dob, *join_date, *leave_date;
 
 public:
+    //Constructor
     Account();
     Account(std::string n, std::string ad, std::string p_n, std::string em, std::string pass, int sl, bool admin, Time* birth, Time* join, Time* leave);
     

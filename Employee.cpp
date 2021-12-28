@@ -6,7 +6,7 @@ Employee::Employee(string n, string ad, string p_n, string em, string pass, int 
 
 };
 
-void EmployeeInfo(){
+void Employee::EmployeeInfo(){
     cout << "Name: " << name << endl;
 
 }
