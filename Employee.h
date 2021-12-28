@@ -7,7 +7,7 @@ class Employee:public Account{
 
 public:
     Employee(std::string n, std::string ad, std::string p_n, std::string em, std::string pass, int sl, bool admin, Time* birth, Time* join, Time* leave);
-    
+    void EmployeeInfo();
 };
 
 #endif
