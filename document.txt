@@ -1,20 +1,25 @@
 HRM system
 CRUD: Create, read, update and delete
 
-menu
+menu (DK)
 
-class: p: account, c: admin, employee
+class: p: account (ZK), c: admin, employee (DK)
 
-People: name, date of birth, address, phone number, email, join date, leave date, salary, password, account type
+Time class: (ZK)
+	Time() create current time
+	Time(time) create time obj
+	get_time() return the time
 
-employee: 
+People: name, date of birth, address, phone number, email, join date, leave date, salary, password, account type (ZK)
+
+employee: (DK)
 	see: own info
 	check-in, check-out
-admin: 
+admin: (DK)
 	see: everything
 	edit: everything
 
-Login: employee, admin
+Login: employee, admin (DKZK)
 
 attendance system: record attendance, check-in, check-out, list with table
 database: search by name, list all(sort), CRUD
