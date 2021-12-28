@@ -23,7 +23,7 @@ public:
     Time* get_time(std::string n);
 
     //Setter
-    void set_string(std::string n, string data);
+    void set_string(std::string n, std::string data);
     void set_salary(int data);
     void set_admin(bool data);
     void set_time(std::string n, Time* data);

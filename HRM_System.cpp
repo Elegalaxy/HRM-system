@@ -8,6 +8,7 @@ Dowson Kerk: https://github.com/DowsonKerk
 #include <filesystem>
 #include <string>
 #include <map>
+#include <vector>
 #include "Admin.h"
 #include "Employee.h"
 using namespace std;
@@ -120,7 +121,7 @@ void onQuit(map<string, Account*> &db, map<string, vector< pair<Time*, Time*> > 
                 << to_string(cur->get_admin()) << '\n'
                 << cur->get_time("dob")->get_both() << '\n'
                 << cur->get_time("join")->get_both() << '\n'
-                << cur->get_time("leave")->get_both() << '\n\n';
+                << cur->get_time("leave")->get_both() << '\n' << '\n';
     }
 
     dbFile.close();

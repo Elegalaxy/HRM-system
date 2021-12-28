@@ -13,7 +13,7 @@ private:
 public:
     Time(); // Create current time
     Time(int nul); // Create nul time
-    Time(string t); // Create time from log
+    Time(std::string t); // Create time from log
     Time(int f, int s, int t, bool isDate); // Create time obj
     Time(int day, int month, int year, int hr, int mins, int sec); // Create time obj
     std::string get_time();
