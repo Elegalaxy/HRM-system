@@ -1,0 +1,20 @@
+HRM system
+CRUD: Create, read, update and delete
+
+menu
+
+class: p: account, c: admin, employee
+
+People: name, date of birth, address, phone number, email, join date, leave date, salary, password, account type
+
+employee: 
+	see: own info
+	check-in, check-out
+admin: 
+	see: everything
+	edit: everything
+
+Login: employee, admin
+
+attendance system: record attendance, check-in, check-out, list with table
+database: search by name, list all(sort), CRUD
