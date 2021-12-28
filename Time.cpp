@@ -9,6 +9,15 @@ Time::Time(){
     Time_time = cons_time(now->tm_hour, now->tm_min, now->tm_sec);
 }
 
+Time::Time(int nul){
+    
+}
+
+Time::Time(string t){
+    Time_date = t.substr(0, 10);
+    Time_time = t.substr(11);
+}
+
 Time::Time(int f, int s, int t, bool isDate = true){
     string temp = cons_time(f, s, t);
     if(isDate)
@@ -29,6 +38,10 @@ string Time::get_time(){
 
 string Time::get_date(){
     return Time_date;
+}
+
+string Time::get_both(){
+    return Time_date+","+Time_time;
 }
 
 string Time::cons_time(int f, int s, int t){

@@ -9,6 +9,7 @@ Time class: (ZK)
 	Time() create current time
 	Time(time) create time obj
 	get_time() return the time
+	get_date() return the date
 
 People: name, date of birth, address, phone number, email, join date, leave date, salary, password, account type (ZK)
 

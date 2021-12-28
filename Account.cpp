@@ -4,7 +4,7 @@ using namespace std;
 
 //Constructor
 
-Account::Account(): name{""}, address{""}, phone_number{""}, email{""}, password{""}, salary{0}, isAdmin{false}, dob{new Time(nullptr)}, join_date{new Time(nullptr)}, leave_date{new Time(nullptr)} {};
+Account::Account(): name{""}, address{""}, phone_number{""}, email{""}, password{""}, salary{0}, isAdmin{false}, dob{new Time(0)}, join_date{new Time(0)}, leave_date{new Time(0)} {};
 
 Account::Account(string n, string ad, string p_n, string em, string pass, int sl, bool admin, Time* birth, Time* join, Time* leave): name{n}, address{ad}, phone_number{p_n}, email{em}, password{pass}, salary{sl}, isAdmin{admin}, dob{birth}, join_date{join}, leave_date{leave} {};
 
