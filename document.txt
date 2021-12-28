@@ -18,3 +18,5 @@ Login: employee, admin
 
 attendance system: record attendance, check-in, check-out, list with table
 database: search by name, list all(sort), CRUD
+
+Record data in local
