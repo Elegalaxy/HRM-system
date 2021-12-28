@@ -21,6 +21,13 @@ public:
     bool get_admin();
     Time* get_time(std::string n);
 
+    //Setter
+    void get_string(std::string n);
+    void get_salary();
+    void get_admin();
+    void get_time(std::string n);
+
+
 };
 
 #endif
