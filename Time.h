@@ -11,7 +11,7 @@ private:
 
 public:
     Time();
-    Time();
+    Time(time_t t);
     std::string get_time();
 };
 
