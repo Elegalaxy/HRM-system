@@ -4,6 +4,7 @@ ZeKai Chong: https://github.com/Elegalaxy
 Dowson Kerk: https://github.com/DowsonKerk
 */
 #include <iostream>
+#include <string>
 using namespace std;
 
 int main (){
@@ -29,6 +30,7 @@ void login(){
         cout << "(1)Username" << endl;
         cin >> username;
         cout << "(2)Passsword" << endl;
-        cin >> password;      
+        cin >> password;  
+        system("clear");   
 }
 
