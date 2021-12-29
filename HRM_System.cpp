@@ -156,27 +156,52 @@ int main (){
     cout << "Human Resources Management System" << endl;
     cout << "Choose 1 to Proceed and Choose 2 to Exit the system" << endl;
     int choice = 1;
-    while(choice !=2)
+    while(choice !=2){
         cout << "(1)Login" << endl;
         cout << "(2)Exit" << endl;
         cin >> choice;
         cout << endl;
 
         if(choice == 1)
-            login();
+            login(db);
+    }
 
     onQuit(db, att);
     return 0;
 }
 
 
-void login(){
-    string username;
+void login(map<string, Account*>&db){
+    string email;
     string password;
-        cout << "(1)Username" << endl;
-        cin >> username;
-        cout << "(2)Passsword" << endl;
-        cin >> password;  
-        system("clear");   
+        cout << "Please enter Your Email: " << endl;
+        cin >> email;
+        cout << "Please enter Your Passsword: " << endl;
+        cin >> password; 
+        system("clear");
+        Account*currentacc = db[email];
+        if (currentacc != nullptr && currentacc->get_string("password") == password ){
+            cout <<"Welcome to Human Resources Management System," << currentacc->get_string("name")<< "." <<endl;
+            int choice= 1;
+            while (choice !=4){
+                cout << "(1)Account Info" << endl;
+                cout << "(2)Check In" << endl;
+                cout << "(3)Check Out" << endl;
+                cout << "(4)Exit" << endl;
+                cin >> choice;
+                cout << endl;
+                
+                if(choice == 1)
+                   EmployeeInfo();
+                if(choice == 2)
+                   EmployeeCin(); 
+                if(choice == 3)
+                   EmployeeCout();
+
+                
+            }
+
+        }
+        
 }
 

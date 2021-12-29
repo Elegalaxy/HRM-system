@@ -16,3 +16,12 @@ void Employee::EmployeeInfo(){
     cout << "Join Date: " << join_date << endl;
     cout << "Leave Date: " << leave_date << endl << endl;
 }
+
+void Employee::EmployeeCin(map<string, vector<pair<Time*, Time*>> > &attend){
+    attend[email].push_back(make_pair(new Time(), nullptr));
+}
+
+
+void Employee::EmployeeCout(map<string, vector<pair<Time*, Time*>> > &attend){
+    attend[email][attend[email].size()-1].second = new Time();
+}
