@@ -171,7 +171,7 @@ int main (){
 }
 
 
-void login(map<string, Account*>&db){
+void login(map<string, Account*>&db, map<string, vector<pair<Time*, Time*>> > &att){
     string email;
     string password;
         cout << "Please enter Your Email: " << endl;
@@ -192,11 +192,11 @@ void login(map<string, Account*>&db){
                 cout << endl;
                 
                 if(choice == 1)
-                   EmployeeInfo();
+                   currentacc->get_info();
                 if(choice == 2)
-                   EmployeeCin(); 
+                   currentacc->check_in(att); 
                 if(choice == 3)
-                   EmployeeCout();
+                   currentacc->check_out(att);
 
                 
             }

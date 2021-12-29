@@ -2,6 +2,8 @@
 #define ACCOUNT_H
 #include "Time.h"
 #include <string>
+#include <map>
+#include <vector>
 
 class Account{
 
@@ -28,6 +30,9 @@ public:
     void set_admin(bool data);
     void set_time(std::string n, Time* data);
 
+    virtual void get_info() = 0;
+    void check_in(map<string, vector<pair<Time*, Time*>> > &attend);
+    void check_out(map<string, vector<pair<Time*, Time*>> > &attend);
 
 };
 

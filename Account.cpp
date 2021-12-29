@@ -76,3 +76,12 @@ void Account::set_time(string n, Time* data){
     else if(n == "leave")
         leave_date = data;
 }
+
+void Account::check_in(map<string, vector<pair<Time*, Time*>> > &attend){
+    attend[email].push_back(make_pair(new Time(), nullptr));
+}
+
+
+void Account::check_out(map<string, vector<pair<Time*, Time*>> > &attend){
+    attend[email][attend[email].size()-1].second = new Time();
+}

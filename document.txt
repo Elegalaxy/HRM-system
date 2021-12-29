@@ -17,7 +17,7 @@ employee: (DK)
 	see: own info
 	check-in, check-out
 admin: (DK)
-	see: everything
+	see: all info
 	edit: everything
 
 Login(email, password): employee, admin (DKZK)
