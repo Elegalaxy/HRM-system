@@ -31,7 +31,7 @@ public:
     void set_time(std::string n, Time* data);
 
     virtual void get_info();
-    virtual void createacc();
+    virtual void createacc(map<string, Account*> &db);
     virtual void editacc();
     virtual void deleteacc();
     void check_in(map<string, vector<pair<Time*, Time*>> > &attend);

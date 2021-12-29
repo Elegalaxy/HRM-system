@@ -204,7 +204,7 @@ void login(map<string, Account*>&db, map<string, vector<pair<Time*, Time*>> > &a
                 }
                 else if (currentacc->get_admin() == true){
                     if(choice == 2)
-                        currentacc->createacc();
+                        currentacc->createacc(db);
                     else if(choice == 3)
                         currentacc->editacc();
                     else if(choice == 4)
