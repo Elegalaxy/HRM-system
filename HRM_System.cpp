@@ -37,7 +37,10 @@ void init(map<string, Account*> &db, map<string, vector< pair<Time*, Time*> > > 
         while(getline(dbFile, curLine)){
             if(curLine.empty()){
                 cur = 0;
-                db[email] = new Account(name, address, phone_number, email, password, salary, isAdmin, dob, join_date, leave_date);
+                if(isAdmin)
+                    db[email] = new Admin(name, address, phone_number, email, password, salary, isAdmin, dob, join_date, leave_date);
+                else
+                    db[email] = new Employee(name, address, phone_number, email, password, salary, isAdmin, dob, join_date, leave_date);
             }else{
                 if(cur == 0)
                     email = curLine;
@@ -163,7 +166,7 @@ int main (){
         cout << endl;
 
         if(choice == 1)
-            login(db);
+            login(db, att);
     }
 
     onQuit(db, att);
