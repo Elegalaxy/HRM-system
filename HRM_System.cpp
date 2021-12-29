@@ -184,18 +184,29 @@ void login(map<string, Account*>&db, map<string, vector<pair<Time*, Time*>> > &a
             currentacc->check_in(att); 
             cout <<"Welcome to Human Resources Management System," << currentacc->get_string("name")<< "." <<endl;
             int choice= 1;
-            while (choice !=2){
+            while (choice !=0){
                 cout << "(1)Account Info" << endl;
-                cout << "(2)Exit" << endl;
+                if (currentacc->get_admin() == true){
+                    cout << "(2)Create Account" << endl;
+                    cout << "(3)Edit Account" << endl;
+                    cout << "(4)Delete Account" << endl;
+                } 
+                cout << "(0)Exit" << endl;
+
                 cin >> choice;
                 cout << endl;
                 
                 if(choice == 1){
-                   currentacc->get_info();
-
-                   }
-
-                
+                    currentacc->get_info();
+                }
+                else if (currentacc->get_admin() == true){
+                    if(choice == 2)
+                        currentacc->createacc();
+                    else if(choice == 3)
+                        currentacc->editacc();
+                    else if(choice == 4)
+                        currentacc->deleteacc();    
+                }
             }
         currentacc->check_out(att);              
         }
