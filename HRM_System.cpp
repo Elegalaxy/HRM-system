@@ -181,26 +181,23 @@ void login(map<string, Account*>&db, map<string, vector<pair<Time*, Time*>> > &a
         system("clear");
         Account*currentacc = db[email];
         if (currentacc != nullptr && currentacc->get_string("password") == password ){
+            currentacc->check_in(att); 
             cout <<"Welcome to Human Resources Management System," << currentacc->get_string("name")<< "." <<endl;
             int choice= 1;
-            while (choice !=4){
+            while (choice !=2){
                 cout << "(1)Account Info" << endl;
-                cout << "(2)Check In" << endl;
-                cout << "(3)Check Out" << endl;
-                cout << "(4)Exit" << endl;
+                cout << "(2)Exit" << endl;
                 cin >> choice;
                 cout << endl;
                 
-                if(choice == 1)
+                if(choice == 1){
                    currentacc->get_info();
-                if(choice == 2)
-                   currentacc->check_in(att); 
-                if(choice == 3)
-                   currentacc->check_out(att);
+
+                   }
 
                 
             }
-
+        currentacc->check_out(att);              
         }
         
 }
