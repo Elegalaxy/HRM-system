@@ -18,7 +18,7 @@ Time::Time(string t){
     Time_time = t.substr(11);
 }
 
-Time::Time(int f, int s, int t, bool isDate = true){
+Time::Time(string f, string s, string t, bool isDate = true){
     string temp = cons_time(f, s, t);
     if(isDate)
         Time_date = temp;
@@ -26,7 +26,7 @@ Time::Time(int f, int s, int t, bool isDate = true){
         Time_time = temp;
 }
 
-Time::Time(int day, int month, int year, int hr, int mins, int sec){
+Time::Time(string day, string month, string year, string hr, string mins, string sec){
     Time_date = cons_time(day, month, year);
     Time_time = cons_time(hr, mins, sec);
 
@@ -46,4 +46,8 @@ string Time::get_both(){
 
 string Time::cons_time(int f, int s, int t){
     return to_string(f)+"-"+to_string(s)+"-"+to_string(t);
+}
+
+string Time::cons_time(string f, string s, string t){
+    return f+"-"+s+"-"+t;
 }

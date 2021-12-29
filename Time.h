@@ -9,13 +9,14 @@ private:
     std::string Time_time = "NULL"; //HH-MM-SS
     std::string Time_date = "NULL"; //DD-MM-YYYY
     std::string cons_time(int f, int s, int t);
+    std::string cons_time(std::string f, std::string s, std::string t);
 
 public:
     Time(); // Create current time
     Time(int nul); // Create nul time
     Time(std::string t); // Create time from log
-    Time(int f, int s, int t, bool isDate); // Create time obj
-    Time(int day, int month, int year, int hr, int mins, int sec); // Create time obj
+    Time(std::string f, std::string s, std::string t, bool isDate); // Create time obj
+    Time(std::string day, std::string month, std::string year, std::string hr, std::string mins, std::string sec); // Create time obj
     std::string get_time();
     std::string get_date();
     std::string get_both();
