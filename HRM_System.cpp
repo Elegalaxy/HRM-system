@@ -189,9 +189,9 @@ void login(map<string, Account*>&db, map<string, vector<pair<Time*, Time*>> > &a
                         if(choice == 2)
                             currentacc->createacc(db);
                         else if(choice == 3)
-                            currentacc->editacc();
+                            currentacc->editacc(db;
                         else if(choice == 4)
-                            currentacc->deleteacc();    
+                            currentacc->deleteacc(db);    
                     }
                 }
 
