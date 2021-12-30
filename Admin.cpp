@@ -46,7 +46,7 @@ void Admin::createacc(map<string, Account*> &db){
 
 void Admin::editacc(map<string, Account*> &db){
     string email;
-    char choice;
+    int choice;
     int n;
     string str;
 
