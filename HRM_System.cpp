@@ -158,9 +158,9 @@ void onQuit(map<string, Account*> &db, map<string, vector< pair<Time*, Time*> > 
 void login(map<string, Account*>&db, map<string, vector<pair<Time*, Time*>> > &att){
     string email;
     string password;
-        cout << "Please enter Your Email: " << endl;
+        cout << "Please enter Your Email: ";
         cin >> email;
-        cout << "Please enter Your Passsword: " << endl;
+        cout << "Please enter Your Passsword: ";
         cin >> password; 
         system("clear");
         Account* currentacc = db[email];
@@ -168,7 +168,7 @@ void login(map<string, Account*>&db, map<string, vector<pair<Time*, Time*>> > &a
         if (currentacc != nullptr){
             if(currentacc->get_string("password") == password ){
                 currentacc->check_in(att); 
-                cout <<"Welcome to Human Resources Management System," << currentacc->get_string("name")<< "." <<endl;
+                cout <<"Welcome to Human Resources Management System, " << currentacc->get_string("name")<< "." <<endl;
                 int choice= 1;
                 while (choice !=0){
                     cout << "(1)Account Info" << endl;
@@ -178,7 +178,7 @@ void login(map<string, Account*>&db, map<string, vector<pair<Time*, Time*>> > &a
                         cout << "(4)Delete Account" << endl;
                     } 
                     cout << "(0)Exit" << endl;
-
+                    cout << "What u want to do?" << endl;
                     cin >> choice;
                     cout << endl;
                     
@@ -196,8 +196,8 @@ void login(map<string, Account*>&db, map<string, vector<pair<Time*, Time*>> > &a
                 }
 
                 currentacc->check_out(att);              
-            }else cout << "Wrong password!" << endl;
-        }else cout << "Account not exist!" << endl;
+            }else cout << "The password was wrong." << endl;
+        }else cout << "The account not exist!" << endl;
         
 }
 
@@ -209,12 +209,12 @@ int main (){
     db["test"] = new Admin("Name", "address", "0123456789", "test", "test", 1000, true, new Time("03", "08", "2000", true), new Time(), new Time(0));
     // db["dw"] = new Employee("dw", "address", "0123456789", "dw", "dw", 1000, false, new Time("03", "08", "2000", true), new Time(), new Time(0));
 
-    cout << "Human Resources Management System" << endl;
-    cout << "Choose 1 to Proceed and Choose 2 to Exit the system" << endl;
+    cout << "---------Human Resources Management System---------" << endl;
     int choice = 1;
     while(choice !=2){
         cout << "(1)Login" << endl;
         cout << "(2)Exit" << endl;
+        cout << "Choose 1 to Login and Choose 2 to Exit the system." << endl;
         cin >> choice;
         cout << endl;
 
