@@ -32,8 +32,8 @@ public:
 
     virtual void get_info();
     virtual void createacc(std::map<std::string, Account*> &db);
-    virtual void editacc();
-    virtual void deleteacc();
+    virtual void editacc(std::map<std::string, Account*> &db);
+    virtual void deleteacc(std::map<std::string, Account*> &db);
     void check_in(std::map<std::string, std::vector<std::pair<Time*, Time*>> > &attend);
     void check_out(std::map<std::string, std::vector<std::pair<Time*, Time*>> > &attend);
 

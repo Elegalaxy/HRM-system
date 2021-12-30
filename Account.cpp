@@ -94,9 +94,9 @@ void Account::createacc(map<string, Account*> &db){
 
 }
 
-void Account::editacc(){
+void Account::editacc(map<string, Account*> &db){
 
 }
-void Account::deleteacc(){
+void Account::deleteacc(map<string, Account*> &db){
 
 }

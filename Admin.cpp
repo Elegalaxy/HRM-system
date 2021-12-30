@@ -41,11 +41,71 @@ void Admin::createacc(map<string, Account*> &db){
     else
         admin = new Employee(name, address, phone_number, email, password,stoi(salary),(isAdmin == "true"), new Time(date, month, year, true), new Time(), new Time(0));
     db[email]= admin;
+    cout << "Successfully create account" << endl;
 }
 
-void Admin::editacc(){
+void Admin::editacc(map<string, Account*> &db){
+    string email;
+    char choice;
+    int n;
+    string str;
+
+    cout << "Which account do you want to edit?" << endl;
+    cin >> email;
+
+    Account* cur = db[email];
+    if(cur == nullptr)
+        cout << "Account not exist!" << endl;
+    else{
+        cur->get_info();
+        cout << "What data do you want to edit?" << endl;
+        cout << "Name(1), Address(2), Phone Number(3)" << endl;
+        cout << "Email(4) Password(5), Salary(6)" << endl;
+        cin >> choice;
+        cout << "Change to: ";
+        (choice == 6)? cin >> n: cin >> str;
+
+        bool succ = true;
+        switch (choice){
+            case 1:
+                cur->set_string("name", str);
+                break;
+            case 2:
+                cur->set_string("address", str);
+                break;
+            case 3:
+                cur->set_string("phone_number", str);
+                break;
+            case 4:
+                cur->set_string("email", str);
+                break;
+            case 5:
+                cur->set_string("password", str);
+                break;
+            case 6:
+                cur->set_salary(n);
+                break;
+            default:
+                succ = false;
+                cout << "Data not available!" << endl;
+        }
+
+        if(succ)
+            cout << "Successfully change data" << endl;
+
+    }
 
 }
-void Admin::deleteacc(){
+void Admin::deleteacc(map<string, Account*> &db){
+    string email, sure;
+    cout << "Which account do you want to delete?" << endl;
+    cout << "Enter by email: " << endl;
+    cin >> email;
+    cout << "Are you sure you want to delete " << email << " ?(y/n): ";
+    cin >> sure;
 
+    if(sure == "y" || sure == "Y"){
+        db.erase(email);
+        cout << "Successfully delete account" << endl;
+    }
 }
