@@ -12,7 +12,7 @@ void Employee::get_info(){
     cout << "Phone Number: " << phone_number << endl;
     cout << "Email: " << email << endl;
     cout << "Password: " << password << endl;
-    cout << "Date of Birth: " << dob << endl;
-    cout << "Join Date: " << join_date << endl;
-    cout << "Leave Date: " << leave_date << endl << endl;
+    cout << "Date of Birth: " << dob->get_date() << endl;
+    cout << "Join Date: " << join_date->get_both() << endl;
+    cout << "Leave Date: " << leave_date->get_both() << endl << endl;
 }

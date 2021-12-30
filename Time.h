@@ -6,10 +6,10 @@
 class Time{
 
 private:
-    std::string Time_time = "NULL"; //HH-MM-SS
-    std::string Time_date = "NULL"; //DD-MM-YYYY
-    std::string cons_time(int f, int s, int t);
-    std::string cons_time(std::string f, std::string s, std::string t);
+    std::string Time_time = "00:00:00"; //HH:MM:SS
+    std::string Time_date = "00-00-0000"; //DD-MM-YYYY
+    std::string cons_time(std::string f, std::string s, std::string t, bool isDate);
+    std::string fix(int t);
 
 public:
     Time(); // Create current time

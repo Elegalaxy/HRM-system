@@ -10,4 +10,4 @@ notclean:
 	./main
 
 main: 
-	g++ -std=c++17 -o main Time.h Time.cpp Account.h Account.cpp Admin.h Admin.cpp Employee.h Employee.cpp HRM_System.cpp
+	g++ -std=c++17 -o main Time.h Time.cpp Account.h Account.cpp Employee.h Employee.cpp Admin.h Admin.cpp HRM_System.cpp

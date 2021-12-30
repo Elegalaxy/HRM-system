@@ -31,11 +31,11 @@ public:
     void set_time(std::string n, Time* data);
 
     virtual void get_info();
-    virtual void createacc(map<string, Account*> &db);
+    virtual void createacc(std::map<std::string, Account*> &db);
     virtual void editacc();
     virtual void deleteacc();
-    void check_in(map<string, vector<pair<Time*, Time*>> > &attend);
-    void check_out(map<string, vector<pair<Time*, Time*>> > &attend);
+    void check_in(std::map<std::string, std::vector<std::pair<Time*, Time*>> > &attend);
+    void check_out(std::map<std::string, std::vector<std::pair<Time*, Time*>> > &attend);
 
 };
 

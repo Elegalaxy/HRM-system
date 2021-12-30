@@ -4,7 +4,12 @@
 using namespace std;
 
 Admin::Admin(string n, string ad, string p_n, string em, string pass, int sl, bool admin, Time* birth, Time* join, Time* leave):Account(n, ad, p_n, em, pass, sl, admin, birth, join, leave){
+
 };
+
+void Admin::get_info(){
+
+}
 
 void Admin::createacc(map<string, Account*> &db){ 
     string name, address, phone_number, email, password, salary ,isAdmin, year, month, date;
@@ -32,9 +37,9 @@ void Admin::createacc(map<string, Account*> &db){
     cin >> isAdmin;
     Account*admin;
     if (isAdmin == "true") 
-        admin = new Admin(name, address, phone_number, email, password,stoi(salary),(isAdmin == "true"), new Time(date, month, year, true), new Time(),nullptr);
+        admin = new Admin(name, address, phone_number, email, password,stoi(salary),(isAdmin == "true"), new Time(date, month, year, true), new Time(), new Time(0));
     else
-        admin = new Employee(name, address, phone_number, email, password,stoi(salary),(isAdmin == "true"), new Time(date, month, year, true), new Time(),nullptr);
+        admin = new Employee(name, address, phone_number, email, password,stoi(salary),(isAdmin == "true"), new Time(date, month, year, true), new Time(), new Time(0));
     db[email]= admin;
 }
 
