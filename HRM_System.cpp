@@ -120,16 +120,17 @@ void onQuit(map<string, Account*> &db, map<string, vector< pair<Time*, Time*> > 
 
     for(auto ppl:db){
         Account* cur = ppl.second;
-        dbFile << cur->get_string("email") << '\n'
-                << cur->get_string("address") << '\n'
-                << cur->get_string("phone_number") << '\n'
-                << cur->get_string("name") << '\n'
-                << cur->get_string("password") << '\n'
-                << to_string(cur->get_salary()) << '\n'
-                << to_string(cur->get_admin()) << '\n'
-                << cur->get_time("dob")->get_both() << '\n'
-                << cur->get_time("join")->get_both() << '\n'
-                << cur->get_time("leave")->get_both() << '\n' << '\n';
+        if(cur != nullptr)
+            dbFile << cur->get_string("email") << '\n'
+                    << cur->get_string("address") << '\n'
+                    << cur->get_string("phone_number") << '\n'
+                    << cur->get_string("name") << '\n'
+                    << cur->get_string("password") << '\n'
+                    << to_string(cur->get_salary()) << '\n'
+                    << to_string(cur->get_admin()) << '\n'
+                    << cur->get_time("dob")->get_both() << '\n'
+                    << cur->get_time("join")->get_both() << '\n'
+                    << cur->get_time("leave")->get_both() << '\n' << '\n';
     }
 
     dbFile.close();
@@ -162,7 +163,9 @@ void login(map<string, Account*>&db, map<string, vector<pair<Time*, Time*>> > &a
         cin >> email;
         cout << "Please enter Your Passsword: ";
         cin >> password; 
+
         system("clear");
+        cout << email << password << endl;
         Account* currentacc = db[email];
 
         if (currentacc != nullptr){
