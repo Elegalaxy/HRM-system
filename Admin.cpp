@@ -68,9 +68,10 @@ void Admin::editacc(map<string, Account*> &db){
     cin >> email;
 
     Account* cur = db[email];
-    if(cur == nullptr)
+    if(cur == nullptr){
+        db.erase(email);
         cout << "Account not exist!" << endl;
-    else{
+    }else{
         cur->get_info(db);
         cout << "What data do you want to edit?" << endl;
         cout << "Name(1), Address(2), Phone Number(3)" << endl;
