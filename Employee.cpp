@@ -6,7 +6,7 @@ Employee::Employee(string n, string ad, string p_n, string em, string pass, int 
 
 };
 
-void Employee::get_info(){
+void Employee::get_info(std::map<std::string, Account*> &db){
     cout << "Name: " << name << endl;
     cout << "Address: " << address << endl;
     cout << "Phone Number: " << phone_number << endl;

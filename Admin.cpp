@@ -7,8 +7,22 @@ Admin::Admin(string n, string ad, string p_n, string em, string pass, int sl, bo
 
 };
 
-void Admin::get_info(){
+void Admin::get_info(map<string, Account*> &db){
+    map<string, Account*>::iterator info;
 
+    for (info = db.begin(); info != db.end(); info++){
+        Account*accinfo = info->second;
+        cout << "Name: " << accinfo->get_string("name") << endl;
+        cout << "Date of Birth: " << accinfo->get_time("dob")->get_date() << endl;
+        cout << "Address: " << accinfo->get_string("address") << endl;
+        cout << "Phone number: " << accinfo->get_string("phone_number") << endl;
+        cout << "Email: " << accinfo->get_string("email") << endl;
+        cout << "Salary: " << accinfo->get_salary() << endl;
+        cout << "Admin: " << accinfo->get_admin() << endl;
+        cout << "Join Date: " << accinfo->get_time("join")->get_both() << endl;
+        cout << "Leave Date: " << accinfo->get_time("leave")->get_both() << endl << endl;
+    }
+        
 }
 
 void Admin::createacc(map<string, Account*> &db){ 
@@ -24,7 +38,7 @@ void Admin::createacc(map<string, Account*> &db){
     cin >> email;
     cout << "Password: ";
     cin >> password;
-    cout << "Format DD-MM-YYYY";
+    cout << "Format DD-MM-YYYY" << endl;
     cout << "Date of Birth(Date): ";
     cin >> date;
     cout << "Date of Birth(Month): ";
@@ -57,7 +71,7 @@ void Admin::editacc(map<string, Account*> &db){
     if(cur == nullptr)
         cout << "Account not exist!" << endl;
     else{
-        cur->get_info();
+        cur->get_info(db);
         cout << "What data do you want to edit?" << endl;
         cout << "Name(1), Address(2), Phone Number(3)" << endl;
         cout << "Email(4) Password(5), Salary(6)" << endl;

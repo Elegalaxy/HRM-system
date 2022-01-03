@@ -30,7 +30,7 @@ public:
     void set_admin(bool data);
     void set_time(std::string n, Time* data);
 
-    virtual void get_info();
+    virtual void get_info(std::map<std::string, Account*> &db);
     virtual void createacc(std::map<std::string, Account*> &db);
     virtual void editacc(std::map<std::string, Account*> &db);
     virtual void deleteacc(std::map<std::string, Account*> &db);

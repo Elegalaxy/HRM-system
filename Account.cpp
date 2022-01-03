@@ -86,7 +86,7 @@ void Account::check_out(map<string, vector<pair<Time*, Time*>> > &attend){
     attend[email][attend[email].size()-1].second = new Time();
 }
 
-void Account::get_info(){
+void Account::get_info(map<string, Account*> &db){
 
 }
 

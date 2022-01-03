@@ -186,7 +186,7 @@ void login(map<string, Account*>&db, map<string, vector<pair<Time*, Time*>> > &a
                     cout << endl;
                     
                     if(choice == 1){
-                        currentacc->get_info();
+                        currentacc->get_info(db);
                     }
                     else if (currentacc->get_admin() == true){
                         if(choice == 2)
