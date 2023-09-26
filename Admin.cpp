@@ -1,4 +1,6 @@
 #include <iostream>
+#include <fstream>
+#include <filesystem>
 #include "Admin.h"
 #include "Employee.h"
 using namespace std;
@@ -18,7 +20,7 @@ void Admin::get_info(map<string, Account*> &db){
         cout << "Phone number: " << accinfo->get_string("phone_number") << endl;
         cout << "Email: " << accinfo->get_string("email") << endl;
         cout << "Salary: " << accinfo->get_salary() << endl;
-        cout << "Admin: " << accinfo->get_admin() << endl;
+        cout << "Admin: " << ((accinfo->get_admin()==true)?"Y":"N") << endl;
         cout << "Join Date: " << accinfo->get_time("join")->get_both() << endl;
         cout << "Leave Date: " << accinfo->get_time("leave")->get_both() << endl << endl;
     }
@@ -49,13 +51,33 @@ void Admin::createacc(map<string, Account*> &db){
     cin >> salary;
     cout << "Admin(true/false): ";
     cin >> isAdmin;
+
     Account*admin;
+
     if (isAdmin == "true") 
         admin = new Admin(name, address, phone_number, email, password,stoi(salary),(isAdmin == "true"), new Time(date, month, year, true), new Time(), new Time(0));
     else
         admin = new Employee(name, address, phone_number, email, password,stoi(salary),(isAdmin == "true"), new Time(date, month, year, true), new Time(), new Time(0));
-    db[email]= admin;
+    db[email] = admin;
+
+    // record to db
+    ofstream dbFile("Logs/database.txt");
+
+    dbFile << admin->get_string("email") << '\n'
+        << admin->get_string("address") << '\n'
+        << admin->get_string("phone_number") << '\n'
+        << admin->get_string("name") << '\n'
+        << admin->get_string("password") << '\n'
+        << to_string(admin->get_salary()) << '\n'
+        << to_string(admin->get_admin()) << '\n'
+        << admin->get_time("dob")->get_both() << '\n'
+        << admin->get_time("join")->get_both() << '\n'
+        << admin->get_time("leave")->get_both() << '\n' << '\n';
+
+    dbFile.close();
+
     cout << "Successfully create account" << endl;
+
 }
 
 void Admin::editacc(map<string, Account*> &db){

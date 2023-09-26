@@ -104,7 +104,7 @@ void init(map<string, Account*> &db, map<string, vector< pair<Time*, Time*> > > 
 
 void onQuit(map<string, Account*> &db, map<string, vector< pair<Time*, Time*> > > &att){
     // Write to database
-    ofstream dbFile("Logs/database.txt");
+    // ofstream dbFile("Logs/database.txt");
 
     // email
     // address
@@ -118,22 +118,23 @@ void onQuit(map<string, Account*> &db, map<string, vector< pair<Time*, Time*> > 
     // leave
     // 
 
-    for(auto ppl:db){
-        Account* cur = ppl.second;
-        if(cur != nullptr)
-            dbFile << cur->get_string("email") << '\n'
-                    << cur->get_string("address") << '\n'
-                    << cur->get_string("phone_number") << '\n'
-                    << cur->get_string("name") << '\n'
-                    << cur->get_string("password") << '\n'
-                    << to_string(cur->get_salary()) << '\n'
-                    << to_string(cur->get_admin()) << '\n'
-                    << cur->get_time("dob")->get_both() << '\n'
-                    << cur->get_time("join")->get_both() << '\n'
-                    << cur->get_time("leave")->get_both() << '\n' << '\n';
-    }
+    // for(auto ppl:db){
+    //     Account* cur = ppl.second;
+    //     if(cur != nullptr)
+    //         dbFile << cur->get_string("email") << '\n'
+    //                 << cur->get_string("address") << '\n'
+    //                 << cur->get_string("phone_number") << '\n'
+    //                 << cur->get_string("name") << '\n'
+    //                 << cur->get_string("password") << '\n'
+    //                 << to_string(cur->get_salary()) << '\n'
+    //                 << to_string(cur->get_admin()) << '\n'
+    //                 << cur->get_time("dob")->get_both() << '\n'
+    //                 << cur->get_time("join")->get_both() << '\n'
+    //                 << cur->get_time("leave")->get_both() << '\n' << '\n';
+    // }
 
-    dbFile.close();
+    // dbFile.close();
+
     // Write to attendances
     ofstream attFile("Logs/attendances.txt");
     
@@ -165,14 +166,18 @@ void login(map<string, Account*>&db, map<string, vector<pair<Time*, Time*>> > &a
         cin >> password; 
 
         system("clear");
-        cout << email << password << endl;
+        // cout << email << password << endl;
         Account* currentacc = db[email];
 
         if (currentacc != nullptr){
+
             if(currentacc->get_string("password") == password ){
+
+                cout << "Hello " << currentacc->get_string("name") << "!" << endl;
                 currentacc->check_in(att); 
                 cout <<"Welcome to Human Resources Management System, " << currentacc->get_string("name")<< "." <<endl;
                 int choice= 1;
+
                 while (choice !=0){
                     cout << "(1)Account Info" << endl;
                     if (currentacc->get_admin() == true){
@@ -180,6 +185,7 @@ void login(map<string, Account*>&db, map<string, vector<pair<Time*, Time*>> > &a
                         cout << "(3)Edit Account" << endl;
                         cout << "(4)Delete Account" << endl;
                     } 
+
                     cout << "(0)Exit" << endl;
                     cout << "What u want to do?" << endl;
                     cin >> choice;
@@ -187,14 +193,16 @@ void login(map<string, Account*>&db, map<string, vector<pair<Time*, Time*>> > &a
                     
                     if(choice == 1){
                         currentacc->get_info(db);
-                    }
-                    else if (currentacc->get_admin() == true){
+
+                    } else if (currentacc->get_admin() == true){
+
                         if(choice == 2)
                             currentacc->createacc(db);
                         else if(choice == 3)
                             currentacc->editacc(db);
                         else if(choice == 4)
                             currentacc->deleteacc(db);
+
                     }
                 }
 
